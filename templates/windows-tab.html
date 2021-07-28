@@ -1,19 +1,13 @@
 {{ define "windows-tab-content" }}
 <h3>Install and Set Up kubectl</h3>
     <div>
-    See
+    - See
     <a title="Install and setup kubectl" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">
-      https://kubernetes.io/docs/tasks/tools/install-kubectl
+      https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
     </a>
 
-    {{ if .KubectlVersion }}
-    <p>
-    Download kubectl:
-    <a title="Download kubectl" href="https://storage.googleapis.com/kubernetes-release/release/{{.KubectlVersion}}/bin/windows/amd64/kubectl.exe">
-      https://storage.googleapis.com/kubernetes-release/release/{{.KubectlVersion}}/bin/windows/amd64/kubectl.exe
-    </a>
-    </p>
-    {{ end }}
+    - Download kubectl directly by clicking "latest release"
+    - Open CMD in your downloads directory
   </div>
 
   {{ if .IDPCaURI }}
