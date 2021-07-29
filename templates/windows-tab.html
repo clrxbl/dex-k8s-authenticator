@@ -5,7 +5,7 @@
     <a title="Install and setup kubectl" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">
       https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
     </a>
-    <br/>- Download kubectl directly by clicking "latest release"
+    <br/>- Download <a href="https://dl.k8s.io/release/v1.21.0/bin/windows/amd64/kubectl.exe">kubectl</a> directly
     <br/>- Open CMD in your downloads directory
   </div>
 
@@ -74,7 +74,7 @@
     <button class="btn" style="float:right" data-clipboard-snippet="">
       <img class="clippy" width="13" src="{{ .Web_Path_Prefix }}static/clippy.svg" alt="">
     </button>
-  <pre><code>kubectl config set-cluster {{ .ClusterName }} --certificate-authority=%USERPROFILE%/.kube/certs/{{ .ClusterName}}/k8s-ca.crt --server={{ .K8sMasterURI }}</code></pre>
+  <pre><code>kubectl.exe config set-cluster {{ .ClusterName }} --certificate-authority=%USERPROFILE%/.kube/certs/{{ .ClusterName}}/k8s-ca.crt --server={{ .K8sMasterURI }}</code></pre>
   </div>
 
   <div class="command">
@@ -82,7 +82,7 @@
     <button class="btn" style="float:right" data-clipboard-snippet="">
       <img class="clippy" width="13" src="{{ .Web_Path_Prefix }}static/clippy.svg" alt=""/>
     </button>
-  <pre><code>kubectl config set-credentials {{ .Username }}-{{ .ClusterName }} --auth-provider=oidc --auth-provider-arg=idp-issuer-url={{ .Issuer }} --auth-provider-arg=client-id={{ .ClientID }} --auth-provider-arg=client-secret={{ .ClientSecret }} --auth-provider-arg=refresh-token={{ .RefreshToken }} --auth-provider-arg=id-token={{ .IDToken }}
+  <pre><code>kubectl.exe config set-credentials {{ .Username }}-{{ .ClusterName }} --auth-provider=oidc --auth-provider-arg=idp-issuer-url={{ .Issuer }} --auth-provider-arg=client-id={{ .ClientID }} --auth-provider-arg=client-secret={{ .ClientSecret }} --auth-provider-arg=refresh-token={{ .RefreshToken }} --auth-provider-arg=id-token={{ .IDToken }}
   {{- if or (.IDPCaURI) (.IDPCaPem) }} --auth-provider-arg=idp-certificate-authority=%USERPROFILE%/.kube/certs/{{ .ClusterName }}/idp-ca.crt
   {{- end }}</code></pre>
   </div>
@@ -91,14 +91,14 @@
     <button class="btn" style="float:right" data-clipboard-snippet="">
       <img class="clippy" width="13" src="{{ .Web_Path_Prefix }}static/clippy.svg" alt="">
     </button>
-    <pre><code class="hljs">kubectl config set-context {{ if not .StaticContextName }}{{ .Username }}-{{ end }}{{ .ClusterName }} --cluster={{ .ClusterName }} --user={{ .Username}}-{{.ClusterName }}</code></pre>
+    <pre><code class="hljs">kubectl.exe config set-context {{ if not .StaticContextName }}{{ .Username }}-{{ end }}{{ .ClusterName }} --cluster={{ .ClusterName }} --user={{ .Username}}-{{.ClusterName }}</code></pre>
   </div>
 
   <div class="command">
     <button class="btn" style="float:right" data-clipboard-snippet="">
       <img class="clippy" width="13" src="{{ .Web_Path_Prefix }}static/clippy.svg" alt=""/>
     </button>
-    <pre><code class="hljs">kubectl config use-context {{ if not .StaticContextName }}{{ .Username }}-{{ end }}{{ .ClusterName}}</code></pre>
+    <pre><code class="hljs">kubectl.exe config use-context {{ if not .StaticContextName }}{{ .Username }}-{{ end }}{{ .ClusterName}}</code></pre>
   </div>
 
 {{ end }}
